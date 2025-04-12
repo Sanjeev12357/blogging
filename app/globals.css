@@ -1,0 +1,337 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 12 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 100% 50%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 20 20% 96%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 270 100% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 0%;
+    --input: 0 0% 80%;
+    --ring: 12 100% 50%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 15%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 15%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 12 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 100% 50%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 270 100% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 0%;
+    --input: 0 0% 20%;
+    --ring: 12 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff6b00' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    font-size: 18px;
+    line-height: 1.8;
+    letter-spacing: 0.025em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tighter font-bold;
+    line-height: 1.2;
+  }
+
+  h1 {
+    @apply text-4xl sm:text-5xl md:text-6xl;
+    margin-bottom: 1rem;
+  }
+  
+  h2 {
+    @apply text-3xl sm:text-4xl;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  h3 {
+    @apply text-2xl sm:text-3xl;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    margin-bottom: 1.75rem;
+    line-height: 1.8;
+    font-size: 1.125rem;
+  }
+
+  /* Custom font classes */
+  .font-heading {
+    font-family: var(--font-heading);
+    letter-spacing: -0.025em;
+    text-shadow: 3px 3px 0px rgba(255, 107, 0, 0.2);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+    letter-spacing: 0.01em;
+  }
+}
+
+/* Funky card styles */
+.funky-card {
+  @apply relative overflow-hidden border-4 border-black transition-all;
+  box-shadow: 8px 8px 0px 0px #000;
+  transform: rotate(0deg);
+}
+
+.funky-card:hover {
+  @apply border-primary;
+  transform: rotate(-1deg) translateY(-5px);
+  box-shadow: 10px 10px 0px 0px #000;
+}
+
+/* Funky button styles */
+.funky-btn {
+  @apply relative overflow-hidden border-3 border-black bg-secondary font-bold text-black transition-all;
+  box-shadow: 4px 4px 0px 0px #000;
+  font-size: 1.125rem;
+  padding: 0.75rem 1.5rem;
+}
+
+.funky-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #000;
+}
+
+.funky-btn:active {
+  transform: translate(0px, 0px);
+  box-shadow: 0px 0px 0px 0px #000;
+}
+
+/* Navigation link styles */
+.nav-link {
+  position: relative;
+  font-weight: bold;
+  font-size: 1.125rem;
+  padding: 0.5rem 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: hsl(var(--primary));
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Wiggle animation */
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+.animate-wiggle {
+  animation: wiggle 1s ease-in-out infinite;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce 3s ease-in-out infinite;
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse border animation */
+@keyframes pulse-border {
+  0%,
+  100% {
+    border-color: hsl(var(--primary));
+  }
+  50% {
+    border-color: hsl(var(--secondary));
+  }
+}
+
+.animate-pulse-border {
+  animation: pulse-border 2s ease-in-out infinite;
+}
+
+/* Rotate animation */
+@keyframes slow-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-slow-rotate {
+  animation: slow-rotate 20s linear infinite;
+}
+
+/* Additional styling for blog content */
+.prose {
+  @apply max-w-3xl mx-auto;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  color: hsl(var(--primary));
+}
+
+.prose p {
+  margin-bottom: 1.75em;
+  line-height: 1.9;
+  font-size: 1.125rem;
+}
+
+.prose a {
+  color: hsl(var(--secondary));
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+}
+
+.prose a:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.3em;
+  background-color: hsl(var(--secondary), 0.3);
+  z-index: -1;
+  transition: height 0.2s ease;
+}
+
+.prose a:hover:after {
+  height: 0.8em;
+}
+
+/* Card styling */
+.blog-card {
+  @apply relative overflow-hidden transition-all rounded-xl border-4 border-black;
+  box-shadow: 8px 8px 0px 0px #000;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 10px 10px 0px 0px #000;
+}
+
+.blog-card .blog-card-content {
+  @apply p-6;
+}
+
+.blog-card .blog-card-title {
+  @apply text-xl font-bold mb-3 font-heading;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-left: 2px solid #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border: 2px solid #000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--secondary));
+}
+
+/* Tailwind animations */
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+}
+
+@layer components {
+  .text-stroke {
+    -webkit-text-stroke: 2px black;
+  }
+
+  .text-shadow-funky {
+    text-shadow: 4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+  }
+}

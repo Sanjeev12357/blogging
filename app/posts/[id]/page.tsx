@@ -53,18 +53,18 @@ export default function PostPage({ params }: { params: { id: string } }) {
   return (
     <div className="min-h-screen">
       {/* Header Image */}
-      <div className="relative h-[50vh] w-full overflow-hidden bg-blue-100 flex items-center justify-center">
+      <div className="relative h-[30vh] sm:h-[40vh] md:h-[50vh] w-full overflow-hidden bg-blue-100 flex items-center justify-center">
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
-          width="200" 
-          height="200" 
+          width="120" 
+          height="120" 
           viewBox="0 0 24 24" 
           fill="none" 
           stroke="currentColor" 
           strokeWidth="1" 
           strokeLinecap="round" 
           strokeLinejoin="round" 
-          className="text-blue-500"
+          className="text-blue-500 sm:w-[160px] sm:h-[160px] md:w-[200px] md:h-[200px]"
         >
           <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
           <rect x="9" y="9" width="6" height="6"></rect>
@@ -82,68 +82,68 @@ export default function PostPage({ params }: { params: { id: string } }) {
       {/* Main Content */}
       <main className="container mx-auto px-4">
         {/* Post Header */}
-        <div className="relative -mt-20 rounded-t-3xl bg-white px-6 pt-10 md:px-10 lg:px-16 border-4 border-black">
+        <div className="relative -mt-16 sm:-mt-20 rounded-t-3xl bg-white px-4 sm:px-6 pt-6 sm:pt-10 md:px-10 lg:px-16 border-4 border-black">
           <div className="mx-auto max-w-3xl">
             <Link
               href="/"
-              className="inline-flex items-center text-sm font-bold text-secondary hover:text-primary mb-6"
+              className="inline-flex items-center text-xs sm:text-sm font-bold text-secondary hover:text-primary mb-4 sm:mb-6"
             >
-              <ArrowLeft className="mr-2 h-4 w-4" />
+              <ArrowLeft className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
               Back to Home
             </Link>
 
-            <Badge className="mb-4 border-2 border-black bg-secondary text-black font-bold">{post.category}</Badge>
+            <Badge className="mb-3 sm:mb-4 border-2 border-black bg-secondary text-black font-bold text-xs sm:text-sm">{post.category}</Badge>
 
-            <h1 className="font-heading mb-6 text-3xl font-bold leading-loose  tracking-widest md:text-4xl lg:text-5xl">
+            <h1 className="font-heading mb-4 sm:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-shadow-funky tracking-tight">
               {post.title}
             </h1>
 
-            <div className="mb-8 flex flex-wrap items-center gap-4 text-sm font-bold text-primary">
-              <div className="flex items-center gap-2">
-                <Calendar className="h-4 w-4" />
+            <div className="mb-6 sm:mb-8 flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm font-bold text-primary">
+              <div className="flex items-center gap-1 sm:gap-2">
+                <Calendar className="h-3 w-3 sm:h-4 sm:w-4" />
                 <span>{post.publishedAt}</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4" />
+              <div className="flex items-center gap-1 sm:gap-2">
+                <Clock className="h-3 w-3 sm:h-4 sm:w-4" />
                 <span>{post.readTime}</span>
               </div>
-              <div className="flex items-center gap-2">
-                <MessageSquare className="h-4 w-4" />
+              <div className="flex items-center gap-1 sm:gap-2">
+                <MessageSquare className="h-3 w-3 sm:h-4 sm:w-4" />
                 <span>{post.comments} comments</span>
               </div>
-              <div className="flex items-center gap-2">
-                <ThumbsUp className="h-4 w-4" />
+              <div className="flex items-center gap-1 sm:gap-2">
+                <ThumbsUp className="h-3 w-3 sm:h-4 sm:w-4" />
                 <span>{post.likes} likes</span>
               </div>
             </div>
 
-            <div className="mb-10 flex items-center gap-4">
+            <div className="mb-6 sm:mb-10 flex items-center gap-3 sm:gap-4">
               <Image
                 src={post.author.avatar || "/placeholder.svg"}
                 alt={post.author.name}
-                width={48}
-                height={48}
-                className="rounded-full border-4 border-black"
+                width={36}
+                height={36}
+                className="rounded-full border-3 border-black sm:w-[48px] sm:h-[48px]"
               />
               <div>
-                <div className="font-bold">{post.author.name}</div>
-                <div className="text-sm text-muted-foreground">{post.author.bio}</div>
+                <div className="font-bold text-sm sm:text-base">{post.author.name}</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">{post.author.bio}</div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Post Content */}
-        <div className="bg-white px-6 py-8 md:px-10 lg:px-16 border-x-4 border-black">
-          <div className="prose prose-lg dark:prose-invert mx-auto max-w-3xl">
+        <div className="bg-white px-4 sm:px-6 py-6 sm:py-8 md:px-10 lg:px-16 border-x-4 border-black">
+          <div className="prose prose-sm sm:prose-base md:prose-lg dark:prose-invert mx-auto max-w-3xl">
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
           </div>
 
           {/* Tags */}
-          <div className="mx-auto mt-10 max-w-3xl">
+          <div className="mx-auto mt-8 sm:mt-10 max-w-3xl">
             <div className="flex flex-wrap gap-2">
               {post.tags.map((tag) => (
-                <Badge key={tag} variant="outline" className="text-sm border-2 border-black font-bold">
+                <Badge key={tag} variant="outline" className="text-xs sm:text-sm border-2 border-black font-bold">
                   {tag}
                 </Badge>
               ))}
@@ -151,39 +151,39 @@ export default function PostPage({ params }: { params: { id: string } }) {
           </div>
 
           {/* Share and Like */}
-          <div className="mx-auto mt-8 max-w-3xl">
-            <div className="flex flex-wrap items-center justify-between gap-4 rounded-lg border-4 border-black p-6 animate-pulse-border">
-              <div className="flex items-center gap-4">
-                <Button variant="outline" size="sm" className="funky-btn gap-2">
-                  <ThumbsUp className="h-4 w-4" />
+          <div className="mx-auto mt-6 sm:mt-8 max-w-3xl">
+            <div className="flex flex-wrap items-center justify-between gap-3 sm:gap-4 rounded-lg border-4 border-black p-4 sm:p-6 animate-pulse-border">
+              <div className="flex items-center gap-2 sm:gap-4">
+                <Button variant="outline" size="sm" className="funky-btn gap-1 sm:gap-2 text-xs sm:text-sm h-8 sm:h-10">
+                  <ThumbsUp className="h-3 w-3 sm:h-4 sm:w-4" />
                   Like ({post.likes})
                 </Button>
-                <Button variant="outline" size="sm" className="funky-btn gap-2">
-                  <Share2 className="h-4 w-4" />
+                <Button variant="outline" size="sm" className="funky-btn gap-1 sm:gap-2 text-xs sm:text-sm h-8 sm:h-10">
+                  <Share2 className="h-3 w-3 sm:h-4 sm:w-4" />
                   Share
                 </Button>
               </div>
-              <div className="text-sm font-bold text-secondary">Thank you for reading!</div>
+              <div className="text-xs sm:text-sm font-bold text-secondary">Thank you for reading!</div>
             </div>
           </div>
 
-          <Separator className="mx-auto my-16 max-w-3xl border-t-4 border-black" />
+          <Separator className="mx-auto my-10 sm:my-16 max-w-3xl border-t-4 border-black" />
 
           {/* Author Bio */}
-          <div className="mx-auto mb-16 max-w-3xl">
-            <div className="flex flex-col items-center gap-6 rounded-xl bg-muted/30 p-8 text-center sm:flex-row sm:text-left border-4 border-black">
+          <div className="mx-auto mb-10 sm:mb-16 max-w-3xl">
+            <div className="flex flex-col items-center gap-4 sm:gap-6 rounded-xl bg-muted/30 p-4 sm:p-8 text-center sm:flex-row sm:text-left border-4 border-black">
               <Image
                 src={post.author.avatar || "/placeholder.svg"}
                 alt={post.author.name}
-                width={80}
-                height={80}
-                className="rounded-full border-4 border-black"
+                width={60}
+                height={60}
+                className="rounded-full border-4 border-black sm:w-[80px] sm:h-[80px]"
               />
               <div>
-                <h3 className="font-heading mb-2 text-xl font-bold text-primary tracking-tight">About {post.author.name}</h3>
-                <p className="text-muted-foreground font-bold">{post.author.bio}</p>
-                <div className="mt-4">
-                  <Button variant="outline" size="sm" className="funky-btn">
+                <h3 className="font-heading mb-1 sm:mb-2 text-lg sm:text-xl font-bold text-primary tracking-tight">About {post.author.name}</h3>
+                <p className="text-muted-foreground font-bold text-xs sm:text-sm">{post.author.bio}</p>
+                <div className="mt-3 sm:mt-4">
+                  <Button variant="outline" size="sm" className="funky-btn text-xs sm:text-sm h-8 sm:h-9">
                     Follow
                   </Button>
                 </div>
@@ -193,7 +193,7 @@ export default function PostPage({ params }: { params: { id: string } }) {
 
           {/* Comments Section */}
           <div className="mx-auto max-w-3xl">
-            <h2 className="font-heading mb-8 text-2xl font-bold text-primary text-shadow-funky tracking-tight">
+            <h2 className="font-heading mb-6 sm:mb-8 text-xl sm:text-2xl font-bold text-primary text-shadow-funky tracking-tight">
               Comments ({post.comments})
             </h2>
             <CommentSection postId={postId} />
@@ -201,9 +201,9 @@ export default function PostPage({ params }: { params: { id: string } }) {
         </div>
 
         {/* Related Posts */}
-        <div className="bg-muted/20 px-6 py-16 md:px-10 lg:px-16 border-x-4 border-b-4 border-black rounded-b-3xl">
+        <div className="bg-muted/20 px-4 sm:px-6 py-10 sm:py-16 md:px-10 lg:px-16 border-x-4 border-b-4 border-black rounded-b-3xl">
           <div className="mx-auto max-w-6xl">
-            <h2 className="font-heading mb-10 text-center text-3xl font-bold text-primary text-shadow-funky tracking-tight">
+            <h2 className="font-heading mb-8 sm:mb-10 text-center text-2xl sm:text-3xl font-bold text-primary text-shadow-funky tracking-tight">
               You might also like
             </h2>
             <RelatedPosts currentPostId={postId} />

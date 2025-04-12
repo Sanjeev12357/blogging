@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="128" fill="url(#paint0_linear)"/>
+  
+  <!-- Document Icon -->
+  <path d="M320 144H192C178.7 144 168 154.7 168 168V344C168 357.3 178.7 368 192 368H320C333.3 368 344 357.3 344 344V168C344 154.7 333.3 144 320 144Z" fill="white" stroke="white" stroke-width="8"/>
+  <path d="M288 144V184H328L288 144Z" fill="#7C3AED" stroke="#7C3AED" stroke-width="4"/>
+  
+  <!-- Paintbrush -->
+  <path d="M344 240C396 220 426 180 426 180C426 180 402 224 390 280C386 300 362 308 344 292C326 276 326 248 344 240Z" fill="#EC4899" stroke="white" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Paint Drips and Dots -->
+  <circle cx="220" cy="220" r="18" fill="#EC4899"/>
+  <circle cx="260" cy="280" r="14" fill="#8B5CF6"/>
+  <circle cx="200" cy="300" r="10" fill="#3B82F6"/>
+  
+  <!-- Text Lines -->
+  <rect x="200" cy="240" width="80" height="8" rx="4" fill="#8B5CF6"/>
+  <rect x="200" cy="260" width="100" height="8" rx="4" fill="#8B5CF6"/>
+  <rect x="200" cy="280" width="60" height="8" rx="4" fill="#8B5CF6"/>
+  
+  <!-- Gradient Background -->
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3B82F6"/>
+      <stop offset="0.5" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#EC4899"/>
+    </linearGradient>
+  </defs>
+</svg> 

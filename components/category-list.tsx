@@ -132,9 +132,10 @@ export default function CategoryList() {
           key={category.id}
           variants={item}
           whileHover={{ y: -5, transition: { duration: 0.2 } }}
+          className="h-full"
         >
           <Link href={`/categories/${category.id}`} className="block h-full">
-            <div className="funky-card group flex h-full flex-col bg-white p-6 transition-all cursor-pointer">
+            <div className="funky-card group flex h-full flex-col bg-white p-6 transition-all cursor-pointer hover:shadow-lg">
               <div className="mb-4 flex items-center justify-between">
                 <div className={`flex h-16 w-16 items-center justify-center rounded-xl border-3 border-black ${category.color} text-black`}>
                   {category.icon}
@@ -150,14 +151,13 @@ export default function CategoryList() {
                 Browse all posts in the {category.name.toLowerCase()} category.
               </p>
               <div className="mt-auto flex justify-between items-center">
-                <span className="text-lg font-bold text-primary">
-                  View category
+                <span className="text-lg font-bold text-muted-foreground">
+                  Category
                 </span>
-                <div className="h-8 w-8 rounded-full border-3 border-black bg-secondary flex items-center justify-center text-black group-hover:bg-primary transition-colors duration-300">
+                <div className="h-8 w-8 rounded-full border-3 border-black bg-secondary flex items-center justify-center text-black">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+                    <path d="M12 5v14"></path>
                     <path d="M5 12h14"></path>
-                    <path d="M13 18l6 -6"></path>
-                    <path d="M13 6l6 6"></path>
                   </svg>
                 </div>
               </div>

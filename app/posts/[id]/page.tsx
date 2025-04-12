@@ -94,7 +94,7 @@ export default function PostPage({ params }: { params: { id: string } }) {
 
             <Badge className="mb-3 sm:mb-4 border-2 border-black bg-secondary text-black font-bold text-xs sm:text-sm">{post.category}</Badge>
 
-            <h1 className="font-heading mb-4 sm:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-shadow-funky tracking-tight">
+            <h1 className="font-heading mb-4 sm:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight  tracking-wider">
               {post.title}
             </h1>
 

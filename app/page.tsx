@@ -71,35 +71,26 @@ export default function Home() {
       <main className="container mx-auto px-4 py-20">
         {/* Featured Post */}
         <section className="mb-24">
-          <div className="mb-12 flex items-center justify-between">
+          <div className="mb-12">
             <h2 className="font-heading text-4xl font-bold text-primary text-shadow-funky md:text-5xl tracking-tight">
               Featured Post
             </h2>
-            <span className="text-secondary text-xl font-bold hover:underline transition-colors cursor-pointer">
-              View all posts
-            </span>
           </div>
           <FeaturedPost />
         </section>
 
         {/* Categories */}
         <section className="mb-24">
-          <div className="mb-12 flex items-center justify-between">
+          <div className="mb-12">
             <h2 className="font-heading text-4xl font-bold text-primary text-shadow-funky md:text-5xl tracking-tight">Categories</h2>
-            <span className="text-secondary text-xl font-bold hover:underline transition-colors cursor-pointer">
-              View all categories
-            </span>
           </div>
           <CategoryList />
         </section>
 
         {/* Recent Posts */}
         <section className="mb-24">
-          <div className="mb-12 flex items-center justify-between">
+          <div className="mb-12">
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary text-shadow-funky tracking-tight">Recent Posts</h2>
-            <span className="text-secondary text-base md:text-xl font-bold hover:underline transition-colors cursor-pointer">
-              View all posts
-            </span>
           </div>
           <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {[1, 2, 3, 4, 5, 6].map((post) => (
@@ -184,18 +175,16 @@ export default function Home() {
                     <span>{`${Math.floor(Math.random() * 10) + 2} min read`}</span>
                   </div>
                   <h3 className="font-heading mb-3 sm:mb-5 text-xl sm:text-2xl font-bold leading-relaxed tracking-tight">
-                    <Link href={`/posts/${post}`} className="hover:text-primary transition-colors">
-                      {
-                        [
-                          "The Future of Web Development",
-                          "Designing for Accessibility",
-                          "My Journey Through Southeast Asia",
-                          "Productivity Hacks for Busy Professionals",
-                          "Finding Balance in a Digital World",
-                          "Career Advice for New Developers",
-                        ][post % 6]
-                      }
-                    </Link>
+                    {
+                      [
+                        "The Future of Web Development",
+                        "Designing for Accessibility",
+                        "My Journey Through Southeast Asia",
+                        "Productivity Hacks for Busy Professionals",
+                        "Finding Balance in a Digital World",
+                        "Career Advice for New Developers",
+                      ][post % 6]
+                    }
                   </h3>
                   <p className="font-body mb-4 text-muted-foreground text-base sm:text-lg leading-relaxed line-clamp-3">
                     {
@@ -274,14 +263,6 @@ export default function Home() {
                 </CardFooter>
               </Card>
             ))}
-          </div>
-          <div className="mt-12 flex justify-center">
-            <Link href="/posts">
-              <Button variant="outline" size="lg" className="funky-btn group text-base sm:text-xl px-6 py-5 sm:px-8 sm:py-7">
-                Load More
-                <ArrowRight className="ml-2 sm:ml-3 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-2" />
-              </Button>
-            </Link>
           </div>
         </section>
 

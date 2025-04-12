@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="border-t-4 border-black bg-white">
       <div className="container mx-auto px-4 py-8 sm:py-12">
-        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
           <div>
             <Link href="/" className="font-heading text-xl sm:text-2xl font-bold text-primary text-shadow-funky">
               Creative Canvas
@@ -14,26 +14,26 @@ export default function Footer() {
               A personal blog sharing insights, stories, and ideas about technology, design, and life.
             </p>
             <div className="mt-4 sm:mt-6 flex gap-3 sm:gap-4">
-              <Link href="#" className="rounded-full bg-black p-1.5 sm:p-2 text-white hover:bg-primary transition-colors">
+              <span className="rounded-full bg-black p-1.5 sm:p-2 text-white">
                 <Twitter className="h-4 w-4 sm:h-5 sm:w-5" />
                 <span className="sr-only">Twitter</span>
-              </Link>
-              <Link href="#" className="rounded-full bg-black p-1.5 sm:p-2 text-white hover:bg-primary transition-colors">
+              </span>
+              <span className="rounded-full bg-black p-1.5 sm:p-2 text-white">
                 <Instagram className="h-4 w-4 sm:h-5 sm:w-5" />
                 <span className="sr-only">Instagram</span>
-              </Link>
-              <Link href="#" className="rounded-full bg-black p-1.5 sm:p-2 text-white hover:bg-primary transition-colors">
+              </span>
+              <span className="rounded-full bg-black p-1.5 sm:p-2 text-white">
                 <Github className="h-4 w-4 sm:h-5 sm:w-5" />
                 <span className="sr-only">GitHub</span>
-              </Link>
-              <Link href="#" className="rounded-full bg-black p-1.5 sm:p-2 text-white hover:bg-primary transition-colors">
+              </span>
+              <span className="rounded-full bg-black p-1.5 sm:p-2 text-white">
                 <Linkedin className="h-4 w-4 sm:h-5 sm:w-5" />
                 <span className="sr-only">LinkedIn</span>
-              </Link>
-              <Link href="#" className="rounded-full bg-black p-1.5 sm:p-2 text-white hover:bg-primary transition-colors">
+              </span>
+              <span className="rounded-full bg-black p-1.5 sm:p-2 text-white">
                 <Facebook className="h-4 w-4 sm:h-5 sm:w-5" />
                 <span className="sr-only">Facebook</span>
-              </Link>
+              </span>
             </div>
           </div>
 
@@ -41,80 +41,42 @@ export default function Footer() {
             <h3 className="font-heading mb-3 sm:mb-4 text-base sm:text-lg font-bold text-primary">Categories</h3>
             <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
               <li>
-                <Link href="/categories/technology" className="font-bold text-muted-foreground hover:text-primary">
+                <span className="font-bold text-muted-foreground">
                   Technology
-                </Link>
+                </span>
               </li>
               <li>
-                <Link href="/categories/design" className="font-bold text-muted-foreground hover:text-primary">
+                <span className="font-bold text-muted-foreground">
                   Design
-                </Link>
+                </span>
               </li>
               <li>
-                <Link href="/categories/travel" className="font-bold text-muted-foreground hover:text-primary">
+                <span className="font-bold text-muted-foreground">
                   Travel
-                </Link>
+                </span>
               </li>
               <li>
-                <Link href="/categories/productivity" className="font-bold text-muted-foreground hover:text-primary">
+                <span className="font-bold text-muted-foreground">
                   Productivity
-                </Link>
+                </span>
               </li>
               <li>
-                <Link href="/categories/life" className="font-bold text-muted-foreground hover:text-primary">
+                <span className="font-bold text-muted-foreground">
                   Life
-                </Link>
+                </span>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-heading mb-3 sm:mb-4 text-base sm:text-lg font-bold text-primary">Quick Links</h3>
-            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
-              <li>
-                <Link href="/about" className="font-bold text-muted-foreground hover:text-primary">
-                  About Me
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="font-bold text-muted-foreground hover:text-primary">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy" className="font-bold text-muted-foreground hover:text-primary">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="font-bold text-muted-foreground hover:text-primary">
-                  Terms of Service
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-heading mb-3 sm:mb-4 text-base sm:text-lg font-bold text-primary">Subscribe</h3>
+            <h3 className="font-heading mb-3 sm:mb-4 text-base sm:text-lg font-bold text-primary">About</h3>
             <p className="mb-3 sm:mb-4 text-xs sm:text-sm font-bold text-muted-foreground">
-              Get notified when I publish new articles. No spam, just quality content.
+              This blog is dedicated to sharing insights on technology, design, and creative pursuits. Stay up to date with the latest trends and ideas.
             </p>
-            <form className="space-y-2">
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="w-full rounded-md border-3 sm:border-4 border-black px-3 py-2 text-xs sm:text-sm focus:border-primary focus:outline-none"
-                required
-              />
-              <button type="submit" className="funky-btn w-full rounded-md px-3 py-2 text-xs sm:text-sm font-bold">
-                Subscribe
-              </button>
-            </form>
+            <p className="text-xs sm:text-sm font-bold text-muted-foreground">
+              © {new Date().getFullYear()} Creative Canvas. All rights reserved.
+            </p>
           </div>
-        </div>
-
-        <div className="mt-8 sm:mt-12 border-t-4 border-black pt-4 sm:pt-6 text-center text-xs sm:text-sm font-bold text-muted-foreground">
-          <p>© {new Date().getFullYear()} Creative Canvas. All rights reserved.</p>
         </div>
       </div>
     </footer>
